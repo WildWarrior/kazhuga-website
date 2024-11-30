@@ -900,7 +900,27 @@ footer {
         object-fit: cover;
       }
     }
-
+@media (max-width: 768px) {
+  .leader-card {
+    .card-front {
+      .image-wrapper {
+        height: 400px;
+        
+        img {
+          object-fit: contain;
+          object-position: center;
+          background-color: #f8f9fa;
+        }
+      }
+      
+      .leader-info {
+        .brief-desc {
+          display: none !important; /* Force hide with !important */
+        }
+      }
+    }
+  }
+}
     .leader-info {
       padding: 25px;
 
@@ -923,7 +943,7 @@ footer {
     }
   }
 }
-  
+
   
 
 @keyframes fadeInUp {
@@ -982,7 +1002,27 @@ footer {
     }
   }
 }
-
+@media (max-width: 768px) {
+  .leader-card {
+    .card-front {
+      .image-wrapper {
+        height: 400px;
+        
+        img {
+          object-fit: contain;
+          object-position: center;
+          background-color: #f8f9fa;
+        }
+      }
+      
+      .leader-info {
+        .brief-desc {
+          display: none !important; /* Force hide with !important */
+        }
+      }
+    }
+  }
+}
 .leadership-team-modern {
   padding: 100px 0;
   background: #f8f9fa;
@@ -1104,14 +1144,27 @@ footer {
 
     .card-front {
       .image-wrapper {
-        height: 300px;
+        width: 100%;
+        height: 300px; /* Desktop height */
         overflow: hidden;
-        
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center top;
+      }
+
+      .image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center; /* Align from top for desktop */
+      }
+
+      @media (max-width: 768px) {
+        .image-wrapper {
+          height: 400px; /* Increased height for mobile */
+        }
+
+        .image-wrapper img {
+          object-fit: contain; /* Show full image without cropping */
+          object-position: center; /* Center the image */
+          background-color: #f8f9fa; /* Optional: Add background color */
         }
       }
 
