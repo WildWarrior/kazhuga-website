@@ -54,6 +54,7 @@ const BlogPost = () => {
         >
           <source src={blogBannerVideo} type="video/mp4" />
         </video>
+        <div className='overlay'></div>
         <div className="blog-post-container">
           <div className="case-study">Case Study</div>
           <h1 className="blog-post-title">{post.title}</h1>
