@@ -11,7 +11,7 @@ const dbConfig = {
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/blog-db', dbConfig);
+        const conn = await mongoose.connect(process.env.MONGODB_URI ||'mongodb://kazhuga-db:One*one=1@3.6.160.164:27017/blog-db', dbConfig);
         console.log(`MongoDB Connected: ${conn.connection.host}`);
         return conn;
     } catch (error) {
