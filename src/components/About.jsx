@@ -29,11 +29,10 @@ const About = () => {
                 <div className='info'>
                   <h4>Data Experts Driving Growth</h4>
                   <p>
-                    Kazhuga provides comprehensive data engineering and
-                    analytics services to help companies extract value from
-                    data. Our experts in data science, engineering, and business
-                    strategy partner with clients to solve complex challenges
-                    through data.
+                  At Kazhuga, we specialize in delivering data-driven solutions for the commodities industry
+                  and beyond. Our Software and data engineering and analytics services empower businesses to 
+                  extract actionable insights and maximize value from their data.
+
                   </p>
                 </div>
               </div>
