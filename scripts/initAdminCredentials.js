@@ -4,13 +4,16 @@ import AdminCredential from '../server/models/AdminCredential.js';
 
 const initializeAdminCredentials = async () => {
   try {
-    await mongoose.connect('mongodb://kazhuga-db:One*one=1@3.6.160.164:27017/blog-db');
+    await mongoose.connect('mongodb+srv://ravik:nQ3G0RazTaQ7CCZT@cluster0.lfo8a.mongodb.net/blog-db',{
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
     // Check if admin already exists
-    const existingAdmin = await AdminCredential.findOne({ username: 'admin@kazhuga' });
+    const existingAdmin = await AdminCredential.findOne({ username: 'admin' });
     
     if (!existingAdmin) {
-      const hashedPassword = await bcrypt.hash('admin@kazhuga2024', 10);
+      const hashedPassword = await bcrypt.hash('KazhugaAdmin', 10);
       
       const adminCredential = new AdminCredential({
         username: 'admin@kazhuga',

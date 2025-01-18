@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "firebase": "^11.1.0",
     "jsonwebtoken": "^9.0.2",
     "marked": "^15.0.2",
     "mongoose": "^8.8.3",
@@ -29,7 +30,8 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.0.1",
     "react-toastify": "^10.0.6",
-    "sanitize-html": "^2.13.1"
+    "sanitize-html": "^2.13.1",
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
