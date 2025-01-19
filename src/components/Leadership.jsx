@@ -41,7 +41,7 @@ const Leadership = () => {
           <div className="vm-grid">
             <div className="vm-card vision">
               <h3>Our Vision</h3>
-              <p>To revolutionize the commodities trading landscape through innovative technology and data-driven solutions, setting new standards for Digitally trandforming wide-ranging industries.</p>
+              <p>To revolutionize the commodities trading landscape through innovative technology and data-driven solutions, setting new standards for Digitally transforming wide-ranging industries.</p>
             </div>
             <div className="vm-card mission">
               <h3>Our Mission</h3>
