@@ -1,0 +1,100 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  node_version: '18.x'
+  azureSubscription: 'Azure subscription'
+  webAppName: 'kazhuga-website'
+  apiAppName: 'kazhuga-api'
+
+stages:
+  - stage: Build
+    jobs:
+      - job: BuildFrontend
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(node_version)
+            displayName: 'Install Node.js'
+
+          - script: |
+              npm install
+              npm run build
+            displayName: 'Build Frontend'
+            workingDirectory: $(System.DefaultWorkingDirectory)
+
+          - task: ArchiveFiles@2
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/dist'
+              includeRootFolder: false
+              archiveType: 'zip'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/frontend.zip'
+              replaceExistingArchive: true
+            displayName: 'Archive Frontend'
+
+      - job: BuildBackend
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(node_version)
+            displayName: 'Install Node.js'
+
+          - script: |
+              cd server
+              npm install
+            displayName: 'Install Backend Dependencies'
+            workingDirectory: $(System.DefaultWorkingDirectory)
+
+          - task: ArchiveFiles@2
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/server'
+              includeRootFolder: false
+              archiveType: 'zip'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/backend.zip'
+              replaceExistingArchive: true
+            displayName: 'Archive Backend'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'drop'
+              publishLocation: 'Container'
+            displayName: 'Publish Artifacts'
+
+  - stage: Deploy
+    dependsOn: Build
+    jobs:
+      - job: DeployFrontend
+        steps:
+          - task: DownloadBuildArtifacts@0
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'drop'
+              downloadPath: '$(System.ArtifactsDirectory)'
+
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: '$(azureSubscription)'
+              appName: '$(webAppName)'
+              package: '$(System.ArtifactsDirectory)/drop/frontend.zip'
+              deploymentMethod: 'auto'
+
+      - job: DeployBackend
+        steps:
+          - task: DownloadBuildArtifacts@0
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'drop'
+              downloadPath: '$(System.ArtifactsDirectory)'
+
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: '$(azureSubscription)'
+              appName: '$(apiAppName)'
+              package: '$(System.ArtifactsDirectory)/drop/backend.zip'
+              deploymentMethod: 'auto'
