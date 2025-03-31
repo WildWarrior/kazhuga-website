@@ -1450,5 +1450,254 @@ footer {
   }
 }
 
+/* Header.css */
+
+/* Header.css */
+
+.nav-menu .services-menu-item {
+  position: relative; /* Required for absolute positioning of the submenu */
+}
+
+.nav-menu .submenu {
+  position: absolute;
+  top: 100%; /* Position below the Services link */
+  left: 0;
+  background-color: rgba(73, 71, 71, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(5px); /*  Blur effect */
+  padding: 10px 20px; /* Increased padding for better spacing */
+  list-style: none;
+  margin: 0;
+  z-index: 10; /* Ensure it's above other elements */
+  display: none; /* Hidden by default */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  min-width: 180px; /* Set a minimum width to accommodate the text */
+}
+
+.nav-menu .services-menu-item:hover .submenu,
+.nav-menu .services-menu-item.active .submenu { /* Optional: Add an "active" class in your JS if needed */
+  display: block; /* Show on hover or when active */
+}
+
+.nav-menu .submenu li {
+  padding: 8px 0;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.nav-menu .submenu li a {
+  color: #ffffff; /* Link color */
+  text-decoration: none;
+  display: block;
+  padding: 0px 0px; /* Increased padding for links */
+  font-size: 14px; /* Consistent font size */
+}
+
+.nav-menu .submenu li a:hover {
+  /* Hover background color */
+  color: #007bff;
+}
+
+/* Style for Digital Transformation */
+/* index.scss */
+
+/* Header.css */
+
+.nav-menu .services-menu-item {
+  position: relative; /* Required for absolute positioning of the submenu */
+}
+
+.nav-menu .submenu {
+  position: absolute;
+  top: 100%; /* Position below the Services link */
+  left: 0;
+  background-color: rgba(
+    73,
+    71,
+    71,
+    0.5
+  ); /* Semi-transparent background */
+  backdrop-filter: blur(5px); /*  Blur effect */
+  padding: 10px 20px; /* Increased padding for better spacing */
+  list-style: none;
+  margin: 0;
+  z-index: 10; /* Ensure it's above other elements */
+  display: none; /* Hidden by default */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  min-width: 180px; /* Set a minimum width to accommodate the text */
+}
+
+.nav-menu .services-menu-item:hover .submenu,
+.nav-menu .services-menu-item.active .submenu {
+  /* Optional: Add an "active" class in your JS if needed */
+  display: block; /* Show on hover or when active */
+}
+
+.nav-menu .submenu li {
+  padding: 8px 0;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.nav-menu .submenu li a {
+  color: #ffffff; /* Link color */
+  text-decoration: none;
+  display: block;
+  padding: 0px 0px; /* Increased padding for links */
+  font-size: 14px; /* Consistent font size */
+}
+
+.nav-menu .submenu li a:hover {
+  /* Hover background color */
+  color: #007bff;
+}
+
+/* Style for Digital Transformation */
+
+/* Sidebar Styles */
+/* index.scss */
+
+/* Header.css */
+
+.nav-menu .services-menu-item {
+  position: relative; /* Required for absolute positioning of the submenu */
+}
+
+.nav-menu .submenu {
+  position: absolute;
+  top: 100%; /* Position below the Services link */
+  left: 0;
+  background-color: rgba(
+    73,
+    71,
+    71,
+    0.5
+  ); /* Semi-transparent background */
+  backdrop-filter: blur(5px); /*  Blur effect */
+  padding: 10px 20px; /* Increased padding for better spacing */
+  list-style: none;
+  margin: 0;
+  z-index: 10; /* Ensure it's above other elements */
+  display: none; /* Hidden by default */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  min-width: 180px; /* Set a minimum width to accommodate the text */
+}
+
+.nav-menu .services-menu-item:hover .submenu,
+.nav-menu .services-menu-item.active .submenu {
+  /* Optional: Add an "active" class in your JS if needed */
+  display: block; /* Show on hover or when active */
+}
+
+.nav-menu .submenu li {
+  padding: 8px 0;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.nav-menu .submenu li a {
+  color: #ffffff; /* Link color */
+  text-decoration: none;
+  display: block;
+  padding: 0px 0px; /* Increased padding for links */
+  font-size: 14px; /* Consistent font size */
+}
+
+.nav-menu .submenu li a:hover {
+  /* Hover background color */
+  color: #007bff;
+}
+
+/* Style for Digital Transformation */
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 250px; /* Adjust as needed */
+  background-color: #333; /* Dark background */
+  color: #fff;
+  padding: 20px;
+  z-index: 100; /* Above everything else */
+  transform: translateX(100%); /* Hidden off-screen initially */
+  transition: transform 0.3s ease-in-out;
+}
+
+body.sidebar-open .sidebar {
+  transform: translateX(0); /* Slide in when open */
+}
+
+.sidebar .close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 0px 0;
+  border-bottom: 1px solid #555;
+}
+
+.sidebar ul li a,
+.sidebar ul li Link {
+  color: #fff;
+  text-decoration: none;
+  display: block; /* Make links fill the li */
+  width: 100%;
+  padding: 5px 0;
+}
+
+/* Sidebar Submenu Styles */
+.sidebar .submenu {
+  position: relative; /* Reset positioning for sidebar */
+  top: auto;
+  left: auto;
+  background-color: transparent; /* Remove background */
+  box-shadow: none; /* Remove shadow */
+  padding: 0; /* Remove padding */
+  margin-left: 20px; /* Indent the submenu */
+  display: none; /* Hidden by default */
+  min-width: auto; /* Remove min-width */
+  border: none; /* Remove border */
+}
+
+.sidebar-submenu li a,
+.sidebar-submenu li a:visited {
+  color: #fff;
+}
+
+/* Style for Digital Transformation */
+
+.sidebar .services-menu-item:hover .submenu,
+.sidebar .submenu.active {
+  display: block; /* Show submenu when "Services" is active */
+}
+
+.sidebar .submenu li {
+  padding: 5px 0;
+  white-space: normal; /* Allow wrapping in sidebar */
+}
+
+.sidebar .submenu li a {
+  color: #fff; /* White color for sidebar links */
+  padding: 5px 0;
+}
+
+.sidebar .submenu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Hover in sidebar */
+}
+
+/* Style for Digital Transformation */
+.sidebar .submenu li:first-child {
+  color: #fff;
+  padding: 5px 0;
+  white-space: normal; /* Allow wrapping in sidebar */
+}
+
 
 
