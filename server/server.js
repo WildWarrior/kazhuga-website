@@ -21,6 +21,7 @@ app.use(cors({
         'http://127.0.0.1:5173',
         'http://localhost:3000',
         'https://kazhuga-website.azurewebsites.net',
+        'http://4.240.83.155:5173',
         process.env.FRONTEND_URL
     ].filter(Boolean),
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
