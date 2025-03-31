@@ -19,7 +19,7 @@ const BlogList = () => {
 
   const fetchFilters = async () => {
     try {
-      const response = await fetch('/api/filters');
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/filters`);
       const data = await response.json();
       setFilters(data);
     } catch (error) {
@@ -30,7 +30,7 @@ const BlogList = () => {
   const fetchPosts = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5000/api/blogs');
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/blogs`);
       const data = await response.json();
       setPosts(data.blogs || []);
     } catch (err) {

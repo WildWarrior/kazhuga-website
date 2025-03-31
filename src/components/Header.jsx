@@ -88,7 +88,7 @@ const Header = () => {
             style={{ cursor: 'pointer', color: 'white' }}
           >
             {/* Removed Link, added onClick */}
-            <a href='/#'>
+            <a>
               Services ↓
             </a>
             {isServicesOpen && (

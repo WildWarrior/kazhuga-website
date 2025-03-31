@@ -15,7 +15,7 @@ const BlogPost = () => {
         setLoading(true);
         setError(null);
         
-        const response = await fetch(`http://localhost:5000/api/blogs/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/blogs/${id}`);
         
         if (!response.ok) {
           if (response.status === 404) {

@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './BlogAdmin.css';
 import Modal from './Modal';
 
-const API_BASE_URL = 'http://localhost:5000';
+
 
 const BlogAdmin = () => {
   const [blogs, setBlogs] = useState([]);
@@ -48,7 +48,7 @@ const BlogAdmin = () => {
   const fetchBlogs = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${API_BASE_URL}/api/blogs`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs`);
       const data = await response.json();
       
       if (data.blogs && Array.isArray(data.blogs)) {
@@ -66,7 +66,7 @@ const BlogAdmin = () => {
 
   const fetchFilters = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/filters`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/filters`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -110,7 +110,7 @@ const BlogAdmin = () => {
 
       console.log('Sending blog data:', blogData);
 
-      const response = await fetch(`${API_BASE_URL}/api/blogs`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ const BlogAdmin = () => {
   const handleDelete = async (blogId) => {
     if (window.confirm('Are you sure you want to delete this blog?')) {
       try {
-        const response = await fetch(`${API_BASE_URL}/api/blogs/${blogId}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs/${blogId}`, {
           method: 'DELETE',
         });
 
@@ -195,7 +195,7 @@ const BlogAdmin = () => {
         slug: slug
       };
 
-      const response = await fetch(`${API_BASE_URL}/api/blogs/${selectedBlog._id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs/${selectedBlog._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
