@@ -10,6 +10,9 @@ import BlogAdmin from './components/blog/BlogAdmin';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 import Login from './components/Login';
+import ContactUs from './components/ContactUs';
+import LandingPage from './components/Landing';
+import Careers from './components/Careers';
 
 function App() {
   return (
@@ -31,7 +34,7 @@ function App() {
             }
           />
           <Route
-            path='/'
+            path='/digital-transformation'
             element={<Home />}
           />
           <Route
@@ -39,7 +42,7 @@ function App() {
             element={<Leadership />}
           />
           <Route
-            path='/ctrm'
+            path='/ctrm-services'
             element={<CTRMServices />}
           />
           <Route
@@ -50,6 +53,19 @@ function App() {
             path='/case-studies/:id'
             element={<BlogPost />}
           />
+          <Route
+            path='/contact-us'
+            element={<ContactUs />}
+          />
+          <Route
+            path='/home'
+            element={<LandingPage />}
+          />
+          <Route
+            path='/'
+            element={<LandingPage />}
+          />
+          <Route path="/careers" element={<Careers />} />
         </Routes>
       </main>
 

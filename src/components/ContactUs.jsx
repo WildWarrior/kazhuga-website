@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { saveContact } from './dataService';
+import leadershipVideo from '../assets/videos/contact.mp4';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -41,6 +42,60 @@ const ContactUs = () => {
   };
 
   return (
+    <>
+      <section className='hero'>
+        <video
+          className='video-background'
+          autoPlay
+          muted
+          loop
+        >
+          <source
+            src={leadershipVideo}
+            type='video/mp4'
+          />
+          Your browser does not support HTML5 video.
+        </video>
+        <div className='overlay'></div>
+        <div className='hero-content'>
+          <h1 className='hero-heading'>Get In Touch</h1>
+          <p className='sub-heading'>
+          We're here to listen and assist you with your queries.
+            <span className='highlight'> Reach out to us</span> for any
+            information or support, and let's create something amazing together!
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+            <a href="#contact-us" className="down-arrow" style={{ 
+              fontSize: '60px',  // Increased font size for a bigger arrow
+              animation: 'bounce 1s infinite', 
+              color: 'white', // Changed color to grey
+              fontWeight: 'bold' // Made the arrow thicker
+            }}>
+              <span style={{ 
+                display: 'inline-block', 
+                transform: 'translateY(0)', 
+                animation: 'bounce 1s infinite' 
+              }}>&#8595;</span> {/* Down arrow symbol */}
+            </a>
+          </div>
+          {/* Add CSS for animation in your stylesheet */}
+          <style>
+            {`
+              @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% {
+                  transform: translateY(0);
+                }
+                40% {
+                  transform: translateY(-10px);
+                }
+                60% {
+                  transform: translateY(-5px);
+                }
+              }
+            `}
+          </style>
+        </div>
+      </section>
     <section
       id='contact-us'
       className='contact-us'
@@ -49,7 +104,7 @@ const ContactUs = () => {
         <h2>Contact Us</h2>
         <p>
           Want to work with us on a future project? Fill out the form below to
-          get started!
+          get started, or mail us at <strong><a href="mailto:sales@kazhuga.com">sales@kazhuga.com</a></strong>.
         </p>
         <form key={formData.id} className='contact-form' onSubmit={handleSubmit}>
           <div className='flex-row'>
@@ -57,7 +112,7 @@ const ContactUs = () => {
               type='text'
               className='full-name'
               name='name'
-              placeholder='Your Name'
+              placeholder='Your Name *'
               onChange={handleChange}
               required
             />
@@ -65,7 +120,7 @@ const ContactUs = () => {
               type='email'
               className='email-address'
               name='email'
-              placeholder='Your Email'
+              placeholder='Your Email *'
               onChange={handleChange}
               required
             />
@@ -74,23 +129,25 @@ const ContactUs = () => {
             type='text'
             className='organization'
             name='organization'
-            placeholder='Your Organization'
+            placeholder='Your Organization *'
             onChange={handleChange}
+            required
           />
           <input
             type='text'
             className='subject'
             name='subject'
-            placeholder='Subject'
+            placeholder='Subject *'
             onChange={handleChange}
             required
           />
           <textarea
             className='message'
             name='message'
-            placeholder='Message'
+            placeholder='Message *'
             onChange={handleChange}
             required
+            style={{ height: '150px', width: '100%' }}
           ></textarea>
           <button
             className='btn'
@@ -111,6 +168,7 @@ const ContactUs = () => {
         )}
       </div>
     </section>
+    </>
   );
 };
 

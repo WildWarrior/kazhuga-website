@@ -14,7 +14,6 @@ function CTRM() {
       <About />
       <Services />
       <Why />
-      <ContactUs />
       {/* <Footer /> */}
     </>
   );

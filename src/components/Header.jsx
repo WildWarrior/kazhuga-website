@@ -72,16 +72,14 @@ const Header = () => {
             className='imageRotateHorizontal'
             size={'2rem'}
           />
-          <Link to='/'>KAZHUGA</Link>
+          <Link to='/home'>KAZHUGA</Link>
         </div>
 
         <ul className='nav-menu'>
           <li>
-            <a href='/#home'>Home</a>
+            <a href='/home'>Home</a>
           </li>
-          <li>
-            <a href='/#about'>About Us</a>
-          </li>
+          
           <li
             className='services-menu-item'
             onClick={toggleServicesSubMenu}
@@ -89,7 +87,7 @@ const Header = () => {
           >
             {/* Removed Link, added onClick */}
             <a>
-              Services ↓
+            Our Solutions ↓
             </a>
             {isServicesOpen && (
               <ul className='submenu'>
@@ -97,7 +95,7 @@ const Header = () => {
                   <Link to='/ctrm'>Digital Transformation</Link>
                 </li>
                 <li>
-                  <Link to='/ctrm'>CTRM Services</Link>
+                  <Link to='/ctrm-services'>CTRM Solutions</Link>
                 </li>
               </ul>
             )}
@@ -108,11 +106,15 @@ const Header = () => {
           <li>
             <Link to='/case-studies'>Case Studies</Link>
           </li>
+          {/* <li>
+            <a href='/#success-stories'>Our Partners</a>
+          </li> */}
           <li>
-            <a href='/#success-stories'>Success Stories</a>
+            <a href='/careers'>Careers</a>
           </li>
+        
           <li>
-            <a href='/#contact-us'>Contact Us</a>
+            <a href='/contact-us#contact-us'>Contact Us</a>
           </li>
         </ul>
 
@@ -135,9 +137,6 @@ const Header = () => {
               <li onClick={toggleSideBarNavigation}>
                 <Link to='/'>Home</Link>
               </li>
-              <li onClick={toggleSideBarNavigation}>
-                <a href='/#about'>About Us</a>
-              </li>
 
               <li className='services-menu-item' >
                 <div
@@ -147,12 +146,12 @@ const Header = () => {
                   }}
                   style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }}
                 >
-                  Services ↓
+                  Our Solutions ↓
                   {isServicesOpen && (
                     <ul className='submenu sidebar-submenu'>
                       <li>
                         <Link
-                          to='/ctrm'
+                          to='/digital-transformation'
                           onClick={toggleSideBarNavigation}
                         >
                           Digital Transformation
@@ -160,10 +159,10 @@ const Header = () => {
                       </li>
                       <li>
                         <Link
-                          to='/ctrm'
+                          to='/ctrm-services'
                           onClick={toggleSideBarNavigation}
                         >
-                          CTRM Services
+                          CTRM Solutions
                         </Link>
                       </li>
                     </ul>
@@ -177,9 +176,9 @@ const Header = () => {
               <li onClick={toggleSideBarNavigation}>
                 <Link to='/case-studies'>Case Studies</Link>
               </li>
-              <li onClick={toggleSideBarNavigation}>
-                <a href='/#success-stories'>Success Stories</a>
-              </li>
+              {/* <li onClick={toggleSideBarNavigation}>
+                <a href='/#success-stories'>Our Partners</a>
+              </li> */}
               <li onClick={toggleSideBarNavigation}>
                 <a href='/#contact-us'>Contact Us</a>
               </li>
