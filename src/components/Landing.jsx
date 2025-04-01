@@ -487,8 +487,9 @@ const HeroContent = styled.div`
   padding-left: 60px;
   
   h1 {
-    font-size: 3rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     line-height: 1.1;
     color: white;
