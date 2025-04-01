@@ -779,6 +779,11 @@ footer {
         align-items: flex-start;
         gap: 10px;
         margin-bottom: 15px;
+        
+        @media (max-width: 768px) {
+          justify-content: center;
+          text-align: left;
+        }
       }
 
       .icon {
@@ -788,10 +793,20 @@ footer {
       address {
         font-style: normal;
         line-height: 1.6;
+        
+        @media (max-width: 768px) {
+          display: inline-block;
+          text-align: left;
+        }
       }
 
       .address-indent {
         margin-left: 24px;
+        
+        @media (max-width: 768px) {
+          margin-left: 24px;
+          display: inline-block;
+        }
       }
     }
   }

@@ -485,17 +485,23 @@ const HeroContent = styled.div`
   text-align: left;
   z-index: 2;
   padding-left: 60px;
+  padding-right: 20px;
   
   h1 {
-    font-size: 2rem;
-    font-weight: 500;
-    margin-top: 1.5rem;
+    font-size: 3rem;
+    font-weight: 600;
     margin-bottom: 1.5rem;
     line-height: 1.1;
     color: white;
     
     @media (max-width: 768px) {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
+      padding-top: 60px;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 2.2rem;
+      padding-left: 0;
     }
   }
   
@@ -508,6 +514,10 @@ const HeroContent = styled.div`
     @media (max-width: 768px) {
       font-size: 1.1rem;
     }
+  }
+  
+  @media (max-width: 768px) {
+    padding-left: 20px;
   }
 `;
 
