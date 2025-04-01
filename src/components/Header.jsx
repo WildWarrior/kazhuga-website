@@ -92,7 +92,7 @@ const Header = () => {
             {isServicesOpen && (
               <ul className='submenu'>
                 <li>
-                  <Link to='/ctrm'>Digital Transformation</Link>
+                  <Link to='/digital-transformation'>Digital Transformation</Link>
                 </li>
                 <li>
                   <Link to='/ctrm-services'>CTRM Solutions</Link>
