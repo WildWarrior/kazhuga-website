@@ -7,7 +7,7 @@ import { FcSelfServiceKiosk } from 'react-icons/fc';
 const BusinessIntelligence = () => {
   return (
     <section
-      id=''
+      id='business-intelligence'
       className='services'
     >
       <div className='container'>

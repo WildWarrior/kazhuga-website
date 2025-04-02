@@ -35,10 +35,10 @@ const Hero = () => {
             Our Services
           </a>
           <a
-            href='#contact-us'
+            href='/contact-us'
             className='btn btn-secondary'
           >
-            Explore
+            Request A Consultation
           </a>
         </div>
       </div>

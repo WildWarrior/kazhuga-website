@@ -4,7 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSideBarOpened, toggleSideBar] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -26,12 +26,27 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
 
   const toggleSideBarNavigation = () => {
-    toggleSideBar(!isSideBarOpened);
-    document.body.classList.toggle('sidebar-open', !isSideBarOpened);
+    const newSidebarState = !isSideBarOpened;
+    toggleSideBar(newSidebarState);
+    
+    if (newSidebarState) {
+      document.body.classList.add('sidebar-open');
+    } else {
+      document.body.classList.remove('sidebar-open');
+    }
   };
 
   const toggleServicesSubMenu = () => {
@@ -43,6 +58,11 @@ const Header = () => {
       document.body.classList.remove('sidebar-open');
     };
   }, []);
+
+  const handleSidebarLinkClick = () => {
+    toggleSideBar(false);
+    document.body.classList.remove('sidebar-open');
+  };
 
   return (
     <header className={isScrolled ? 'scrolled' : ''}>
@@ -90,7 +110,6 @@ const Header = () => {
             onClick={toggleServicesSubMenu}
             style={{ cursor: 'pointer', color: 'white' }}
           >
-            {/* Removed Link, added onClick */}
             <a>
             Our Solutions ↓
             </a>
@@ -100,7 +119,22 @@ const Header = () => {
                   <Link to='/digital-transformation'>Digital Transformation</Link>
                 </li>
                 <li>
-                  <Link to='/ctrm-services'>CTRM Solutions</Link>
+                  <Link to='/digital-transformation#data-engineering'>Data Strategy</Link>
+                </li>
+                <li>
+                  <Link to='/digital-transformation#advanced-ai'>Advanced AI and Machine Learning</Link>
+                </li>
+                <li>
+                  <Link to='/digital-transformation#cloud-expert'>Cloud Solutions</Link>
+                </li>
+                <li>
+                  <Link to='/digital-transformation#business-intelligence'>Business Intelligence</Link>
+                </li>
+                <li>
+                  <Link to='/digital-transformation#data-analytics'>Data Analytics</Link>
+                </li>
+                <li>
+                  <Link to='/ctrm-services'>CTRM & ETRM Solutions</Link>
                 </li>
               </ul>
             )}
@@ -111,9 +145,9 @@ const Header = () => {
           <li>
             <Link to='/case-studies'>Case Studies</Link>
           </li>
-          {/* <li>
-            <a href='/#success-stories'>Our Partners</a>
-          </li> */}
+          <li>
+            <a href='/success-stories'>Success Stories</a>
+          </li>
           <li>
             <a href='/careers'>Careers</a>
           </li>
@@ -139,11 +173,11 @@ const Header = () => {
               onClick={toggleSideBarNavigation}
             />
             <ul>
-              <li onClick={toggleSideBarNavigation}>
+              <li onClick={handleSidebarLinkClick}>
                 <Link to='/'>Home</Link>
               </li>
 
-              <li className='services-menu-item' >
+              <li className='services-menu-item'>
                 <div
                   onClick={(e) => {
                     e.stopPropagation();
@@ -155,19 +189,38 @@ const Header = () => {
                   {isServicesOpen && (
                     <ul className='submenu sidebar-submenu'>
                       <li>
-                        <Link
-                          to='/digital-transformation'
-                          onClick={toggleSideBarNavigation}
-                        >
+                        <Link to='/digital-transformation' onClick={handleSidebarLinkClick}>
                           Digital Transformation
                         </Link>
                       </li>
                       <li>
-                        <Link
-                          to='/ctrm-services'
-                          onClick={toggleSideBarNavigation}
-                        >
-                          CTRM Solutions
+                        <Link to='/digital-transformation#data-engineering' onClick={handleSidebarLinkClick}>
+                          Data Strategy
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to='/digital-transformation#advanced-ai' onClick={handleSidebarLinkClick}>
+                          Advanced AI and Machine Learning
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to='/digital-transformation#cloud-expert' onClick={handleSidebarLinkClick}>
+                          Cloud Solutions
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to='/digital-transformation#business-intelligence' onClick={handleSidebarLinkClick}>
+                          Business Intelligence
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to='/digital-transformation#data-analytics' onClick={handleSidebarLinkClick}>
+                          Data Analytics
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to='/ctrm-services' onClick={handleSidebarLinkClick}>
+                          CTRM & ETRM Solutions
                         </Link>
                       </li>
                     </ul>
@@ -175,16 +228,13 @@ const Header = () => {
                 </div>
               </li>
 
-              <li onClick={toggleSideBarNavigation}>
+              <li onClick={handleSidebarLinkClick}>
                 <Link to='/leadership'>Leadership</Link>
               </li>
-              <li onClick={toggleSideBarNavigation}>
+              <li onClick={handleSidebarLinkClick}>
                 <Link to='/case-studies'>Case Studies</Link>
               </li>
-              {/* <li onClick={toggleSideBarNavigation}>
-                <a href='/#success-stories'>Our Partners</a>
-              </li> */}
-              <li onClick={toggleSideBarNavigation}>
+              <li onClick={handleSidebarLinkClick}>
                 <a href='/contact-us'>Contact Us</a>
               </li>
             </ul>

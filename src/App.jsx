@@ -14,7 +14,7 @@ import ContactUs from './components/ContactUs';
 import LandingPage from './components/Landing';
 import Careers from './components/Careers';
 import PrivacyPolicy from './components/PrivacyPolicy';
-
+import SuccessStories from './components/SuccessStories';
 function App() {
   return (
     <AuthProvider>
@@ -61,6 +61,10 @@ function App() {
           <Route
             path='/home'
             element={<LandingPage />}
+          />
+          <Route
+            path='/success-stories'
+            element={<SuccessStories />}
           />
           <Route
             path='/'

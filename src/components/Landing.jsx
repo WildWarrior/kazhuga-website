@@ -21,6 +21,36 @@ const Landing = () => {
     { src: amazonLogo, alt: "Amazon" }
   ];
   const navigate = useNavigate();
+  const [activeStoryIndex, setActiveStoryIndex] = useState(0);
+  const successStories = [
+    {
+      title: "AI-Powered Trading Analytics Platform",
+      shortDesc: "Natural language interface for complex trading data analysis",
+      fullContent: {
+        impact: {
+          metrics: [
+            { value: "85%", label: "Query Time Reduction" },
+            { value: "95%", label: "User Adoption Rate" },
+            { value: "60%", label: "Efficiency Increase" }
+          ]
+        }
+      }
+    },
+    {
+      title: "Lead Management System for Global Banking",
+      shortDesc: "Streamlined data collection and processing for global banking operations",
+      fullContent: {
+        impact: {
+          metrics: [
+            { value: "95%", label: "Processing Time Reduction" },
+            { value: "100%", label: "Global Implementation" },
+            { value: "80%", label: "Data Quality Improvement" }
+          ]
+        }
+      }
+    },
+    // Add more stories as needed
+  ];
    
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -43,6 +73,14 @@ const Landing = () => {
     
     return () => clearInterval(interval);
   }, [logos.length]);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStoryIndex((prev) => (prev + 1) % successStories.length);
+    }, 5000); // Change story every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   
   // Scroll handler function
   const scrollToExpertise = () => {
@@ -375,6 +413,35 @@ const Landing = () => {
           ))}
         </ClientLogos>
       </TestimonialsSection>
+
+      {/* Add Success Stories Preview Section here */}
+      <SuccessStoriesPreview>
+        <SectionTitle>Success Stories</SectionTitle>
+        <PreviewContainer>
+          <motion.div
+            key={activeStoryIndex}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.5 }}
+            className="story-preview"
+          >
+            <h3>{successStories[activeStoryIndex].title}</h3>
+            <p>{successStories[activeStoryIndex].shortDesc}</p>
+            <div className="metrics">
+              {successStories[activeStoryIndex].fullContent.impact.metrics.map((metric, index) => (
+                <div key={index} className="metric">
+                  <span className="value">{metric.value}</span>
+                  <span className="label">{metric.label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </PreviewContainer>
+        <ViewMoreButton onClick={() => handleNavigation('/success-stories')}>
+          View All Success Stories
+        </ViewMoreButton>
+      </SuccessStoriesPreview>
 
       {/* CTA Section */}
       <CTASection>
@@ -1368,5 +1435,80 @@ const HeroSectionComponent = ({ scrollToExpertise }) => {
     </HeroSection>
   );
 };
+
+const SuccessStoriesPreview = styled.section`
+  padding: 80px 5%;
+  background: linear-gradient(to bottom, #f8faff, #fff);
+  text-align: center;
+`;
+
+const PreviewContainer = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  min-height: 300px;
+
+  .story-preview {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+
+    h3 {
+      color: #316FE2;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    p {
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+
+      .metric {
+        text-align: center;
+
+        .value {
+          display: block;
+          font-size: 2.5rem;
+          color: #316FE2;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        .label {
+          color: #666;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+`;
+
+const ViewMoreButton = styled.button`
+  background: linear-gradient(135deg, #316FE2, #5093ff);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(49, 111, 226, 0.2);
+  }
+`;
 
 export default Landing;

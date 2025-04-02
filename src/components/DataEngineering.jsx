@@ -7,7 +7,7 @@ import { CgOpenCollective } from 'react-icons/cg';
 const DataEngineering = () => {
   return (
     <section
-      id='services'
+      id='data-engineering'
       className='services'
     >
       <div className='container'>

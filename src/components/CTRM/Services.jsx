@@ -18,6 +18,101 @@ const Services = () => {
         <h2>Our Services</h2>
         <div className='grid'>
           <div className='flex-row'>
+            <MdOutlineElectricalServices
+              size={64}
+              className='services-icon blue-text'
+            />
+            <div className='right'>
+              <h3>CTRM/ETRM System Implementation</h3>
+              <p>
+                Specialized expertise in implementing leading CTRM/ETRM platforms including
+                OpenLink Endur, OpenLink Findur, Allegro CTRM, Aspect CTRM, and
+                ION RightAngle. Our consultants provide end-to-end implementation
+                support across various commodities trading workflows.
+              </p>
+            </div>
+          </div>
+
+          <div className='flex-row'>
+            <TbSettingsExclamation
+              size={64}
+              className='services-icon pink-text'
+            />
+            <div className='right'>
+              <h3>Energy Trading & Risk Solutions</h3>
+              <p>
+                Deep domain expertise in energy commodities including crude oil,
+                natural gas, power, and renewables. We help optimize trading
+                operations, risk management, and regulatory compliance using
+                industry-leading ETRM platforms.
+              </p>
+            </div>
+          </div>
+
+          <div className='flex-row'>
+            <FaConnectdevelop
+              size={64}
+              className='services-icon yellow-text'
+            />
+            <div className='right'>
+              <h3>Metals & Mining Solutions</h3>
+              <p>
+                Comprehensive CTRM consulting for metals trading, including precious
+                metals, base metals, and bulk commodities. Our expertise spans
+                physical and derivatives trading, logistics, and risk management
+                using platforms like Allegro and Aspect.
+              </p>
+            </div>
+          </div>
+
+          <div className='flex-row'>
+            <CgOpenCollective
+              size={64}
+              className='services-icon teal-text'
+            />
+            <div className='right'>
+              <h3>Treasury & Financial Trading</h3>
+              <p>
+                Expert implementation of treasury management solutions using
+                OpenLink Findur and other platforms. We support FX trading,
+                money markets, fixed income, and derivatives trading operations
+                with robust risk controls.
+              </p>
+            </div>
+          </div>
+
+          <div className='flex-row'>
+            <TbTransform
+              size={64}
+              className='services-icon green-text'
+            />
+            <div className='right'>
+              <h3>System Integration & Migration</h3>
+              <p>
+                Seamless integration of CTRM/ETRM systems with ERP, accounting,
+                and other enterprise applications. Expert data migration services
+                across platforms including OpenLink Endur, RightAngle, and
+                Allegro CTRM.
+              </p>
+            </div>
+          </div>
+
+          <div className='flex-row'>
+            <FaHammer
+              size={64}
+              className='services-icon limeGreen-text'
+            />
+            <div className='right'>
+              <h3>Custom Development & Extensions</h3>
+              <p>
+                Tailored development of CTRM/ETRM system extensions, custom
+                reports, and interfaces. Expertise in OpenLink Endur/Findur
+                scripting, Allegro extensions, and RightAngle customizations.
+              </p>
+            </div>
+          </div>
+
+          <div className='flex-row'>
             <TbSettingsExclamation
               size={64}
               className='services-icon pink-text'
@@ -124,19 +219,6 @@ const Services = () => {
                 Customizing Commodities and Risk management solutions to align
                 with the unique requirements and workflows of each client,
                 ensuring a seamless fit with their business operations.
-              </p>
-            </div>
-          </div>
-          <div className='flex-row'>
-            <MdOutlineElectricalServices
-              size={64}
-              className='services-icon blue-text'
-            />
-            <div className='right'>
-              <h3>Technology Advisory Services</h3>
-              <p>
-                Providing strategic guidance on technology adoption, innovation,
-                and digital transformation within the Commodities domain.
               </p>
             </div>
           </div>

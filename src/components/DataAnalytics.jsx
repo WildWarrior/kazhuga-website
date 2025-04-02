@@ -7,7 +7,7 @@ import { GiMining } from 'react-icons/gi';
 const DataAnalytics = () => {
   return (
     <section
-      id=''
+      id='data-analytics'
       className='services'
     >
       <div className='container'>

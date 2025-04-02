@@ -15,12 +15,11 @@ const About = () => {
           <div className='flex-row'>
             <div className='left'>
               <p>
-                Kazhuga specializes in solving complex business and tech
-                challenges for commodity-centric organizations. We offer
-                extensive expertise to streamline managing various commodities,
-                from crude and natural gas to agriculture and freight. At
-                Kazhuga, we prioritize creating effortless client relationships
-                and delivering refined solutions to intricate problems.
+                Kazhuga is a premier consulting firm specializing in CTRM (Commodity Trading & Risk Management) 
+                and ETRM (Energy Trading & Risk Management) solutions. With deep expertise across OpenLink Endur, 
+                OpenLink Findur, Allegro CTRM, ION RightAngle, and Aspect platforms, we deliver comprehensive 
+                solutions for global commodity trading organizations. Our expertise spans energy commodities, 
+                metals, agricultural products, and treasury operations.
               </p>
               <div className='flex-row'>
                 <FaBullhorn
@@ -28,15 +27,14 @@ const About = () => {
                   size='50'
                 />
                 <div className='info'>
-                  <h4>We&apos;re sure of a better way</h4>
+                  <h4>Industry-Leading CTRM/ETRM Expertise</h4>
                   <p>
-                    Kazhuga embodies an <em>Innovator’s Mindset</em>,
-                    prioritizing client satisfaction, continuous improvement,
-                    and creating value through innovation and growth. Ingenuity
-                    for Business Challenges. The expert partner for complex
-                    business needs, from CTRM to advanced environment deployment
-                    like RightAngle and Allegro, delivering agile solutions and
-                    industry expertise.
+                    Our team comprises seasoned professionals with extensive experience in 
+                    implementing and optimizing CTRM/ETRM solutions. We specialize in OpenLink 
+                    Endur for energy trading, Findur for treasury operations, Allegro for 
+                    comprehensive commodity management, and RightAngle for integrated trading 
+                    workflows. Our deep understanding of commodity markets ensures solutions 
+                    that deliver real business value.
                   </p>
                 </div>
               </div>
@@ -46,12 +44,13 @@ const About = () => {
                   size='50'
                 />
                 <div className='info'>
-                  <h4>Unmatched Industry Expertise</h4>
+                  <h4>Multi-Commodity Trading Excellence</h4>
                   <p>
-                    Kazhuga&apos;s seasoned experts offer unmatched commodities
-                    industry experience, backed by a specialized team. We
-                    optimize processes, ensuring transparency, efficiency, and
-                    better returns on your IT investments.
+                    We excel in managing diverse commodity portfolios including crude oil, 
+                    natural gas, power, metals, and agricultural products. Our expertise 
+                    covers physical and derivatives trading, risk management, logistics, 
+                    and regulatory compliance. We leverage leading CTRM platforms to optimize 
+                    trading operations and enhance market visibility.
                   </p>
                 </div>
               </div>
@@ -61,11 +60,13 @@ const About = () => {
                   size='50'
                 />
                 <div className='info'>
-                  <h4>Fueling Technological Innovation</h4>
+                  <h4>Advanced Technical Solutions</h4>
                   <p>
-                    Kazhuga pioneers tech innovation in commodities, using
-                    real-world expertise to improve processes. We offer tailored
-                    IT solutions, ensuring certainty and support.
+                    Our technical prowess extends to custom development, system integration, 
+                    and platform extensions. We specialize in OpenLink scripting, Allegro 
+                    customizations, and RightAngle adaptations. Our solutions encompass 
+                    real-time trading interfaces, risk analytics, and automated workflows 
+                    for enhanced operational efficiency.
                   </p>
                 </div>
               </div>
@@ -73,7 +74,7 @@ const About = () => {
             <div className='right'>
               <img
                 src={aboutImg}
-                alt=''
+                alt='CTRM and ETRM Solutions'
               />
             </div>
           </div>
@@ -84,18 +85,17 @@ const About = () => {
           <div className='left'>
             <img
               src={aboutExtra1}
-              alt=''
+              alt='Global Energy Trading Solutions'
             />
           </div>
           <div className='right'>
-            <h3>Global Energy Solutions: Delivering Excellence</h3>
+            <h3>Global Commodity Trading Solutions</h3>
             <p>
-              Kazhuga, a technology solutions company, serves major energy
-              clients across North America, Europe, and Asia. Our commitment to
-              creating impactful solutions is reflected in our track record of
-              on-time, on-budget project execution. Through a client-focused
-              approach and knowledge transfer, Kazhuga ensures accurate delivery
-              from the outset.
+              Kazhuga delivers enterprise-grade CTRM and ETRM solutions across North America, 
+              Europe, and Asia. Our expertise in OpenLink Endur, Findur, Allegro, and RightAngle 
+              implementations has helped major energy, metals, and agricultural trading companies 
+              optimize their operations. We ensure seamless system deployment, knowledge transfer, 
+              and ongoing support for sustainable business growth.
             </p>
           </div>
         </div>
@@ -103,28 +103,26 @@ const About = () => {
       <section className='about about-3'>
         <div className='container flex-row'>
           <div className='left'>
-            <h3>Fueling Technological Innovation</h3>
+            <h3>Innovative Trading Technology Solutions</h3>
             <p>
-              We&apos;re committed to simplifying commodity management and
-              creating solutions that maximize trading and risk system value.
-              Through our structured business modeling, we uncover the details
-              of your key scenarios, enabling streamlined transactions, process
-              automation, and improved data transparency company-wide.
+              We specialize in modernizing commodity trading operations through advanced 
+              CTRM/ETRM implementations. Our solutions cover the entire trading lifecycle - 
+              from deal capture and risk management to settlement and reporting. Using platforms 
+              like OpenLink Endur, Allegro, and RightAngle, we enable straight-through processing, 
+              real-time risk analytics, and automated compliance workflows.
             </p>
             <p>
-              We specialize in CTRM implementations, system selections, and
-              software upgrades, offering profound expertise to our clients. Our
-              mastery spans critical business functions like risk management,
-              trading, distribution, accounting, credit management, compliance,
-              and reporting. Leveraging our technical prowess, we craft custom
-              extensions and tailored solutions that significantly enhance data
-              flow and streamline business operations.
+              Our expertise encompasses critical trading functions including position management, 
+              P&L tracking, risk analytics, credit management, and regulatory reporting. We leverage 
+              advanced features of CTRM platforms to create custom solutions that enhance trading 
+              efficiency and risk control. Our implementations are backed by robust testing, 
+              comprehensive documentation, and dedicated support services.
             </p>
           </div>
           <div className='right'>
             <img
               src={aboutExtra2}
-              alt=''
+              alt='Advanced CTRM Implementation'
             />
           </div>
         </div>
