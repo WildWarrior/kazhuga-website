@@ -60,6 +60,7 @@ header {
   transition: 500ms ease all;
 
   nav {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 15px 10px;
@@ -109,9 +110,13 @@ header {
       }
     }
     & > .hamburger-menu {
+      position: fixed;
+      right: 10px;
+      top: 15px;
       display: inline-block;
       fill: #fff;
       cursor: pointer;
+      z-index: 1001;
       @media (min-width: 800px) {
         display: none;
       }
@@ -173,7 +178,7 @@ header {
         color: #007bff;
       }
       & > .hamburger-menu {
-        fill: url(#blue-white-gradient);
+        top: 10px;
       }
       .sidebar {
         @media (max-width: 900px) {
