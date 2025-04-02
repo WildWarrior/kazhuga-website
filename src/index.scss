@@ -127,7 +127,7 @@ header {
           bottom: 0;
           width: 100%;
           height: 100vh;
-          padding: 25px;
+          // padding: 25px;
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
@@ -1745,12 +1745,12 @@ footer {
 
 /* Sidebar Styles */
 .sidebar {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   right: 0;
   height: 100vh;
   width: 250px;
-  background-color: #333;
+  background-color: #00458f !important;
   color: #fff;
   padding: 20px;
   z-index: 1000;
@@ -1758,26 +1758,71 @@ footer {
   transition: transform 0.3s ease-in-out;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+
+  ul {
+    position: relative !important;
+    background-color: transparent !important;
+    padding: 25px;
+    margin: 0;
+    width: 100%;
+    height: auto;
+
+    li {
+      margin: 30px 0;
+      
+      a, div {
+        color: #fff !important;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .submenu {
+    background-color: transparent !important;
+    padding: 10px 0;
+    margin-left: 20px;
+    
+    li {
+      margin: 15px 0;
+      
+      a {
+        color: #fff !important;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .close {
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    right: 14px;
+    top: 20px;
+    color: #fff !important;
+    fill: #fff !important;
+  }
 }
 
 body.sidebar-open {
   overflow: hidden;
-  padding-right: 15px;
-}
-
-.sidebar-open .sidebar {
-  transform: translateX(0);
-}
-
-.sidebar-closed .sidebar {
-  transform: translateX(100%);
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 .sidebar .close {
   position: absolute;
-  top: 10px;
-  left: 10px;
   cursor: pointer;
+  z-index: 2;
+  right: 14px;
+  top: 20px;
+  color: #fff !important;
+  fill: #fff !important;
 }
 
 .sidebar ul {

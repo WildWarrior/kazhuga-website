@@ -235,6 +235,12 @@ const Header = () => {
                 <Link to='/case-studies'>Case Studies</Link>
               </li>
               <li onClick={handleSidebarLinkClick}>
+                <a href='/success-stories'>Success Stories</a>
+              </li>
+              <li onClick={handleSidebarLinkClick}>
+                <a href='/careers'>Careers</a>
+              </li>
+              <li onClick={handleSidebarLinkClick}>
                 <a href='/contact-us'>Contact Us</a>
               </li>
             </ul>
