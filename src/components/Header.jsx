@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { GiEagleEmblem, GiHamburgerMenu } from 'react-icons/gi';
 import { FaTimes } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
+  const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSideBarOpened, toggleSideBar] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -23,6 +24,10 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const toggleSideBarNavigation = () => {
     toggleSideBar(!isSideBarOpened);
@@ -180,7 +185,7 @@ const Header = () => {
                 <a href='/#success-stories'>Our Partners</a>
               </li> */}
               <li onClick={toggleSideBarNavigation}>
-                <a href='/#contact-us'>Contact Us</a>
+                <a href='/contact-us'>Contact Us</a>
               </li>
             </ul>
           </div>

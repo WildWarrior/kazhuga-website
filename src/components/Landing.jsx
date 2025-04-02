@@ -427,6 +427,7 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding-top: 40px;
   
   &::before {
     content: '';
@@ -448,6 +449,12 @@ const HeroSection = styled.section`
     object-fit: cover;
     z-index: 0;
     opacity: 0.7;
+  }
+  
+  @media (max-width: 768px) {
+    padding-top: 30px;
+    height: auto;
+    min-height: 100vh;
   }
 `;
 
@@ -484,8 +491,8 @@ const HeroContent = styled.div`
   max-width: 1000px;
   text-align: left;
   z-index: 2;
-  padding-left: 60px;
-  padding-right: 20px;
+  padding: 0 20px;
+  margin-top: 40px;
   
   h1 {
     font-size: 3rem;
@@ -495,13 +502,15 @@ const HeroContent = styled.div`
     color: white;
     
     @media (max-width: 768px) {
-      font-size: 2.5rem;
-      padding-top: 60px;
+      font-size: 2rem;
+      margin-top: 20px;
+      padding-right: 15px;
     }
     
     @media (max-width: 480px) {
-      font-size: 2.2rem;
-      padding-left: 0;
+      font-size: 1.8rem;
+      margin-top: 10px;
+      line-height: 1.2;
     }
   }
   
@@ -512,12 +521,9 @@ const HeroContent = styled.div`
     opacity: 0.9;
     
     @media (max-width: 768px) {
-      font-size: 1.1rem;
+      font-size: 1rem;
+      padding-right: 15px;
     }
-  }
-  
-  @media (max-width: 768px) {
-    padding-left: 20px;
   }
 `;
 

@@ -106,7 +106,7 @@ const Footer = () => {
         <div className='footer-bottom'>
           <p>&copy; 2024 Kazhuga. All rights reserved.</p>
           <ul className='footer-bottom-links'>
-            <li><Link to='/' onClick={handleLinkClick} style={{color: 'white'}}>Privacy Policy</Link></li>
+            <li><Link to='/privacy-policy' onClick={handleLinkClick} style={{color: 'white'}}>Privacy Policy</Link></li>
             <li><Link to='/' onClick={handleLinkClick} style={{color: 'white'}}>Terms of Service</Link></li>
           </ul>
         </div>

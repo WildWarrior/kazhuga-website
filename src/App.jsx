@@ -13,6 +13,7 @@ import Login from './components/Login';
 import ContactUs from './components/ContactUs';
 import LandingPage from './components/Landing';
 import Careers from './components/Careers';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 function App() {
   return (
@@ -66,6 +67,7 @@ function App() {
             element={<LandingPage />}
           />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
 
