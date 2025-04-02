@@ -2,7 +2,7 @@ import kyImg from '../assets/img/Ky.jpg';
 import raghuImg from '../assets/img/Raghu.jpg';
 import raviImg from '../assets/img/ravi-1.jpg';
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
-// import { BiSolidQuoteAltLeft } from 'react-icons/bi';
+import { BiSolidQuoteAltLeft } from 'react-icons/bi';
 import leadershipVideo from '../assets/videos/Leadership.mp4';
 
 const Leadership = () => {

@@ -54,10 +54,16 @@ footer {
 
 header {
   height: 79px;
-  position: fixed;
+  position: fixed !important;
+  top: 0;
+  left: 0;
   width: 100%;
-  z-index: 3;
+  z-index: 1000;
   transition: 500ms ease all;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
 
   nav {
     position: relative;
@@ -110,13 +116,13 @@ header {
       }
     }
     & > .hamburger-menu {
-      position: fixed !important;
+      position: fixed;
       right: 10px;
       top: 15px;
       display: inline-block;
       fill: #fff;
       cursor: pointer;
-      z-index: 9999 !important;
+      z-index: 1001;
       @media (min-width: 800px) {
         display: none;
       }
@@ -168,7 +174,27 @@ header {
     nav {
       & > .hamburger-menu {
         top: 10px;
-        fill: #007bff;
+        fill: url(#blue-white-gradient);
+        background: rgba(255, 255, 255, 0.9);
+      }
+      .logo {
+        .imageRotateHorizontal {
+          fill: url(#blue-white-gradient);
+          -moz-animation: none;
+          -o-animation: none;
+          -webkit-animation: none;
+          animation: none;
+        }
+      }
+      a {
+        color: #007bff;
+      }
+      .sidebar {
+        @media (max-width: 900px) {
+          a {
+            color: #fff;
+          }
+        }
       }
     }
   }
@@ -182,8 +208,6 @@ header {
 
 // Hero Section General Styles
 .hero {
-  position: relative;
-  z-index: 1;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   align-items: center;
@@ -192,10 +216,8 @@ header {
   padding: 0 20px;
   overflow: hidden;
 }
-.video-background,
-.overlay {
+.video-background {
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -203,12 +225,22 @@ header {
   object-fit: cover; /* Ensure video covers the entire hero section */
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Make the overlay darker */
+  pointer-events: none;
+}
 .hero-content {
   max-width: 1200px;
   width: 100%;
   text-align: left;
   color: white;
   margin: auto;
+  padding-top: 79px;
 }
 
 .hero-heading {
@@ -259,6 +291,7 @@ header {
     max-width: 90%; /* Restrict width */
     transform: translate(0%, -50%);
     padding: 10px; /* Add inner padding */
+    padding-top: 60px;
   }
 
   .hero-content {
@@ -1081,6 +1114,8 @@ footer {
 .vision-mission {
   padding: 100px 0;
   background: #f8f9fa;
+  position: relative;
+  z-index: 1;
   
   .vm-grid {
     display: grid;
@@ -1146,6 +1181,8 @@ footer {
 .leadership-team-modern {
   padding: 100px 0;
   background: #f8f9fa;
+  position: relative;
+  z-index: 1;
 
   .section-header {
     text-align: center;
@@ -1391,6 +1428,8 @@ footer {
   padding: 100px 0;
   background: linear-gradient(45deg, #1a1a1a, #333);
   color: white;
+  position: relative;
+  z-index: 1;
   
   .values-header {
     text-align: center;

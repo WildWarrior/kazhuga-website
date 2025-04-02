@@ -54,21 +54,21 @@ const Landing = () => {
    
   useEffect(() => {
     const handleMouseMove = (e) => {
-      if (!heroRef.current) return;
-      const { clientX, clientY } = e;
-      const x = clientX / window.innerWidth;
-      const y = clientY / window.innerHeight;
+      // if (!heroRef.current) return;
+      // const { clientX, clientY } = e;
+      // const x = clientX / window.innerWidth;
+      // const y = clientY / window.innerHeight;
       
-      heroRef.current.style.backgroundPosition = `${x * 20}% ${y * 20}%`;
+      // heroRef.current.style.backgroundPosition = `${x * 20}% ${y * 20}%`;
     };
     
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    // window.addEventListener('mousemove', handleMouseMove);
+    // return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
   
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveLogoIndex((prevIndex) => (prevIndex + 1) % logos.length);
+      // setActiveLogoIndex((prevIndex) => (prevIndex + 1) % logos.length);
     }, 2000); // 2 seconds per logo
     
     return () => clearInterval(interval);
@@ -76,7 +76,7 @@ const Landing = () => {
   
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveStoryIndex((prev) => (prev + 1) % successStories.length);
+      // setActiveStoryIndex((prev) => (prev + 1) % successStories.length);
     }, 5000); // Change story every 5 seconds
 
     return () => clearInterval(interval);
