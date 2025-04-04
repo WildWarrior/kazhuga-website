@@ -8,16 +8,21 @@ import BlogList from './components/blog/BlogList';
 import BlogPost from './components/blog/BlogPost';
 import BlogAdmin from './components/blog/BlogAdmin';
 import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider } from './context/AuthContext';
 import Login from './components/Login';
 import ContactUs from './components/ContactUs';
 import LandingPage from './components/Landing';
 import Careers from './components/Careers';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import SuccessStories from './components/SuccessStories';
+import Partners from './components/Partners';
+import NLQAnalytics from './components/products/NLQAnalytics';
+import KazStackDataHub from './components/products/KazStackDataHub';
+import GasTariffAI from './components/products/GasTariffAI';
+import VoxAIAssistant from './components/products/VoxAIAssistant';
+
 function App() {
   return (
-    <AuthProvider>
+    <>
       <Header />
 
       <main>
@@ -67,16 +72,36 @@ function App() {
             element={<SuccessStories />}
           />
           <Route
+            path='/partners'
+            element={<Partners />}
+          />
+          <Route
             path='/'
             element={<LandingPage />}
           />
           <Route path="/careers" element={<Careers />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route
+            path='/products/nlq-analytics'
+            element={<NLQAnalytics />}
+          />
+          <Route
+            path='/products/kazstack-data-hub'
+            element={<KazStackDataHub />}
+          />
+          <Route
+            path='/products/gastariff-ai'
+            element={<GasTariffAI />}
+          />
+          <Route
+            path='/products/voxai-assistant'
+            element={<VoxAIAssistant />}
+          />
         </Routes>
       </main>
 
       <Footer />
-    </AuthProvider>
+    </> 
   );
 }
 

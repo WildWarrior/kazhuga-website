@@ -452,9 +452,9 @@ const Landing = () => {
             <PrimaryButton onClick={() => handleNavigation('/contact-us')}>
               Get In Touch
             </PrimaryButton>
-            <SecondaryButton onClick={() => handleNavigation('/case-studies')}>
+            {/* <SecondaryButton onClick={() => handleNavigation('/case-studies')}>
               View Our Case Studies
-            </SecondaryButton>
+            </SecondaryButton> */}
           </CTAButtons>
         </CTAContent>
       </CTASection>
@@ -523,6 +523,13 @@ const HeroSection = styled.section`
     height: auto;
     min-height: 100vh;
   }
+  
+  /* Add landscape orientation styles */
+  @media (max-width: 915px) and (orientation: landscape) {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 0 40px;
+  }
 `;
 
 const ParticleNetwork = styled.div`
@@ -579,6 +586,17 @@ const HeroContent = styled.div`
       margin-top: 10px;
       line-height: 1.2;
     }
+    
+    /* Add landscape mode styles */
+    @media (max-width: 915px) and (orientation: landscape) {
+      font-size: 1.8rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
+    }
   }
   
   p {
@@ -591,6 +609,18 @@ const HeroContent = styled.div`
       font-size: 1rem;
       padding-right: 15px;
     }
+    
+    /* Add landscape mode styles */
+    @media (max-width: 915px) and (orientation: landscape) {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+  }
+  
+  /* Add specific landscape positioning */
+  @media (max-width: 915px) and (orientation: landscape) {
+    margin-top: 20px;
   }
 `;
 
@@ -603,6 +633,19 @@ const ButtonContainer = styled.div`
   @media (max-width: 576px) {
     flex-direction: column;
     align-items: flex-start;
+  }
+  
+  /* Add landscape mode styles */
+  @media (max-width: 915px) and (orientation: landscape) {
+    margin-top: 1rem;
+    gap: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    button {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+    }
   }
 `;
 

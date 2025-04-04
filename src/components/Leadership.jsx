@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import kyImg from '../assets/img/Ky.jpg';
 import raghuImg from '../assets/img/Raghu.jpg';
 import raviImg from '../assets/img/ravi-1.jpg';
@@ -6,6 +7,30 @@ import { BiSolidQuoteAltLeft } from 'react-icons/bi';
 import leadershipVideo from '../assets/videos/Leadership.mp4';
 
 const Leadership = () => {
+  const [expandedCard, setExpandedCard] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if it's mobile view
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
+
+  // Handle card click to expand/collapse
+  const toggleCard = (cardName) => {
+    if (isMobile) {
+      setExpandedCard(expandedCard === cardName ? null : cardName);
+    }
+  };
+
   return (
     <>
       <section className='hero'>
@@ -26,9 +51,9 @@ const Leadership = () => {
           <h1 className='hero-heading'>Our Leadership</h1>
           <p className='sub-heading'>
             Our leadership team brings together deep expertise in
-            <span className='highlight'> Data and AI Technologies</span>, along
+            <span className='highlight' style={{color: '#0552fa'}}> Data and AI Technologies</span>, along
             with extensive experience in
-            <span className='highlight'>
+            <span className='highlight' style={{color: '#0552fa'}}>
               {' '}
               Commodities Trading & Risk Management
             </span>
@@ -41,7 +66,10 @@ const Leadership = () => {
       <section className='vision-mission'>
         <div className='container'>
           <div className='vm-grid'>
-            <div className='vm-card vision'>
+            <div 
+              className={`vm-card vision ${expandedCard === 'vision' ? 'expanded' : ''}`}
+              onClick={() => toggleCard('vision')}
+            >
               <h3>Our Vision</h3>
               <p>
                 To revolutionize the commodities trading landscape through
@@ -49,7 +77,10 @@ const Leadership = () => {
                 standards for Digitally transforming wide-ranging industries.
               </p>
             </div>
-            <div className='vm-card mission'>
+            <div 
+              className={`vm-card mission ${expandedCard === 'mission' ? 'expanded' : ''}`}
+              onClick={() => toggleCard('mission')}
+            >
               <h3>Our Mission</h3>
               <p>
                 Empowering organizations with cutting-edge trading solutions and

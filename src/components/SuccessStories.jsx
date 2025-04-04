@@ -173,6 +173,11 @@ export const caseStudies = [
 
 const SuccessStories = () => {
   const [selectedCase, setSelectedCase] = useState(null);
+  const [activeCardId, setActiveCardId] = useState(null);
+  
+  const toggleCard = (id) => {
+    setActiveCardId(activeCardId === id ? null : id);
+  };
 
   return (
     <>
@@ -194,9 +199,9 @@ const SuccessStories = () => {
           <h1 className='hero-heading'>Customer Success Stories</h1>
           <p className='sub-heading'>
             Discover how we've helped organizations transform their operations with
-            <span className='highlight'> Data and AI Solutions</span>, delivering
+            <span className='highlight' style={{color: '#0552fa'}}> Data and AI Solutions</span>, delivering
             exceptional results across
-            <span className='highlight'>
+            <span className='highlight' style={{color: '#0552fa'}}>
               {' '}
               Trading, Banking, and Enterprise Systems
             </span>
@@ -216,10 +221,9 @@ const SuccessStories = () => {
             {caseStudies.map((caseStudy) => (
               <div 
                 key={caseStudy.id} 
-                className="case-study"
-                onClick={() => setSelectedCase(caseStudy)}
+                className={`case-study ${activeCardId === caseStudy.id ? 'active' : ''}`}
               >
-                <div className="case-header">
+                <div className="case-header" onClick={() => toggleCard(caseStudy.id)}>
                   <div className="case-icon">
                     {caseStudy.icon}
                   </div>

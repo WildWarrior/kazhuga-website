@@ -62,7 +62,16 @@ const Footer = () => {
               <li><Link to='/digital-transformation' onClick={handleLinkClick}>Digital Transformation</Link></li>
             </ul>
           </div>
-
+          {/* Products Section */}
+          <div className="footer-section">
+            <h4 style={{color: 'white'}}>Products</h4>
+            <ul>
+              <li><Link to="/products/nlq-analytics">NLQ Analytics</Link></li>
+              <li><Link to="/products/kazstack-data-hub">KazStack Data Hub</Link></li>
+              <li><Link to="/products/gastariff-ai">GasTariff AI</Link></li>
+              <li><Link to="/products/voxai-assistant">VoxAI Assistant</Link></li>
+            </ul>
+          </div>
           {/* Company Section - Updated with onClick handler */}
           <div className='footer-section'>
             <h4>Company</h4>
@@ -70,7 +79,7 @@ const Footer = () => {
               <li><Link to='/about' onClick={handleLinkClick}>About Us</Link></li>
               <li><Link to='/leadership' onClick={handleLinkClick}>Our Team</Link></li>
               <li><Link to='/careers' onClick={handleLinkClick}>Careers</Link></li>
-              <li><Link to='/case-studies' onClick={handleLinkClick}>Case Studies</Link></li>
+              {/* <li><Link to='/case-studies' onClick={handleLinkClick}>Case Studies</Link></li> */}
               {/* <li><Link to='/news' onClick={handleLinkClick}>News & Insights</Link></li> */}
             </ul>
           </div>
@@ -100,6 +109,8 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
+          
         </div>
 
         {/* Copyright & Additional Info */}

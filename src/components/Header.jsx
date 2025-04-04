@@ -8,6 +8,8 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSideBarOpened, toggleSideBar] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isLandscape, setIsLandscape] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -17,11 +19,23 @@ const Header = () => {
     }
   };
 
+  // Check orientation and update state
+  const checkOrientation = () => {
+    setIsLandscape(window.matchMedia("(orientation: landscape) and (max-height: 500px)").matches);
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', checkOrientation);
+    
+    // Initial check
+    checkOrientation();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkOrientation);
+      window.removeEventListener('orientationchange', checkOrientation);
     };
   }, []);
 
@@ -65,8 +79,14 @@ const Header = () => {
   };
 
   return (
-    <header className={isScrolled ? 'scrolled' : ''}>
-      <nav className='container'>
+    <header 
+      className={`${isScrolled ? 'scrolled' : ''} ${isLandscape ? 'landscape-mode' : ''}`} 
+      style={{ 
+        // marginTop: '10px',  // Add top margin
+        paddingTop: '0px'  // Add top padding
+      }}
+    >
+      <nav className='container' style={{ paddingTop: '15px' }}>
         <div className='logo'>
           <svg
             width='0'
@@ -139,17 +159,44 @@ const Header = () => {
               </ul>
             )}
           </li>
+          
+          <li
+            className='services-menu-item'
+            onClick={() => setIsProductsOpen(!isProductsOpen)}
+            style={{ cursor: 'pointer', color: 'white' }}
+          >
+            <a>
+            Products ↓
+            </a>
+            {isProductsOpen && (
+              <ul className='submenu'>
+                <li>
+                  <Link to='/products/nlq-analytics'>NLQ Analytics</Link>
+                </li>
+                <li>
+                  <Link to='/products/kazstack-data-hub'>KazStack Data Hub</Link>
+                </li>
+                <li>
+                  <Link to='/products/gastariff-ai'>GasTariff AI</Link>
+                </li>
+                <li>
+                  <Link to='/products/voxai-assistant'>VoxAI Assistant</Link>
+                </li>
+              </ul>
+            )}
+          </li>
+          
           <li>
             <Link to='/leadership'>Leadership</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to='/case-studies'>Case Studies</Link>
-          </li>
+          </li> */}
           <li>
             <a href='/success-stories'>Success Stories</a>
           </li>
           <li>
-            <a href='/careers'>Careers</a>
+            <a href='/partners'>Partners</a>
           </li>
         
           <li>
@@ -159,13 +206,13 @@ const Header = () => {
 
         {!isSideBarOpened && (
           <GiHamburgerMenu
-            className='hamburger-menu'
+            className={`hamburger-menu ${isLandscape ? 'landscape-visible' : ''}`}
             onClick={toggleSideBarNavigation}
             size={24}
           />
         )}
         {isSideBarOpened && (
-          <div className='sidebar'>
+          <div className={`sidebar ${isLandscape ? 'landscape-sidebar' : ''}`}>
             <FaTimes
               className='close'
               color='#fff'
@@ -228,14 +275,53 @@ const Header = () => {
                 </div>
               </li>
 
+              <li className='services-menu-item'>
+                <div
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsProductsOpen(!isProductsOpen);
+                  }}
+                  style={{ cursor: 'pointer', color: 'white', fontSize: '18px' }}
+                >
+                  Products ↓
+                  {isProductsOpen && (
+                    <ul className='submenu sidebar-submenu'>
+                      <li>
+                        <Link to='/products/nlq-analytics' onClick={handleSidebarLinkClick}>
+                          NLQ Analytics
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to='/products/kazstack-data-hub' onClick={handleSidebarLinkClick}>
+                          KazStack Data Hub
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to='/products/gastariff-ai' onClick={handleSidebarLinkClick}>
+                          GasTariff AI
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to='/products/voxai-assistant' onClick={handleSidebarLinkClick}>
+                          VoxAI Assistant
+                        </Link>
+                      </li>
+                    </ul>
+                  )}
+                </div>
+              </li>
+
               <li onClick={handleSidebarLinkClick}>
                 <Link to='/leadership'>Leadership</Link>
               </li>
-              <li onClick={handleSidebarLinkClick}>
+              {/* <li onClick={handleSidebarLinkClick}>
                 <Link to='/case-studies'>Case Studies</Link>
-              </li>
+              </li> */}
               <li onClick={handleSidebarLinkClick}>
                 <a href='/success-stories'>Success Stories</a>
+              </li>
+              <li onClick={handleSidebarLinkClick}>
+                <a href='/partners'>Partners</a>
               </li>
               <li onClick={handleSidebarLinkClick}>
                 <a href='/careers'>Careers</a>

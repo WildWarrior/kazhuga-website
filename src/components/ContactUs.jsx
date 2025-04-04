@@ -61,7 +61,7 @@ const ContactUs = () => {
           <h1 className='hero-heading'>Get In Touch</h1>
           <p className='sub-heading'>
           We're here to listen and assist you with your queries.
-            <span className='highlight'> Reach out to us</span> for any
+            <span className='highlight' style={{color: '#0552fa'}}> Reach out to us</span> for any
             information or support, and let's create something amazing together!
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
