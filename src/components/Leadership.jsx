@@ -5,6 +5,7 @@ import raviImg from '../assets/img/ravi-1.jpg';
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { BiSolidQuoteAltLeft } from 'react-icons/bi';
 import leadershipVideo from '../assets/videos/Leadership.mp4';
+import { Helmet } from 'react-helmet-async';
 
 const Leadership = () => {
   const [expandedCard, setExpandedCard] = useState(null);
@@ -33,6 +34,16 @@ const Leadership = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Leadership</title>
+        <meta name="title" content=" Our Leadership" />
+        <meta name="description" content="Meet our leadership team with decades of experience in commodities trading, risk management, and technological innovation." />
+        <meta property="og:title" content="Our Leadership" />
+        <meta property="og:description" content="Meet our leadership team with decades of experience in commodities trading, risk management, and technological innovation." />
+        <meta property="twitter:title" content="Our Leadership" />
+        <meta property="twitter:description" content="Meet our leadership team with decades of experience in commodities trading, risk management, and technological innovation." />
+      </Helmet>
+      
       <section className='hero'>
         <video
           className='video-background'

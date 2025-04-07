@@ -7,6 +7,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../styles/Partners.css';
 import partner from '../assets/videos/partners.mp4';
+import { Helmet } from 'react-helmet-async';
 
 const Partners = () => {
   useEffect(() => {
@@ -22,6 +23,16 @@ const Partners = () => {
 
   return (
     <div className="partners-page" style={{backgroundColor: 'white'}}>
+      <Helmet>
+        <title>Our Technology Partners</title>
+        <meta name="title" content="Our Technology Partners" />
+        <meta name="description" content="Strategic technology partnerships that power our solutions. Collaborating with industry leaders to deliver exceptional value to our clients." />
+        <meta property="og:title" content="Our Technology Partners" />
+        <meta property="og:description" content="Strategic technology partnerships that power our solutions. Collaborating with industry leaders to deliver exceptional value to our clients." />
+        <meta property="twitter:title" content="Our Technology Partners" />
+        <meta property="twitter:description" content="Strategic technology partnerships that power our solutions. Collaborating with industry leaders to deliver exceptional value to our clients." />
+      </Helmet>
+      
       {/* Hero Section */}
       {/* <section className="partners-hero">
         <div className="container">

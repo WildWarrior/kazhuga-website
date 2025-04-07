@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -22,7 +23,7 @@ import VoxAIAssistant from './components/products/VoxAIAssistant';
 
 function App() {
   return (
-    <>
+    <HelmetProvider>
       <Header />
 
       <main>
@@ -101,7 +102,7 @@ function App() {
       </main>
 
       <Footer />
-    </> 
+    </HelmetProvider>
   );
 }
 

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /sitemap.xml
 
 Sitemap: https://www.kazhuga.com/sitemap.xml 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { saveContact } from './dataService';
 import leadershipVideo from '../assets/videos/contact.mp4';
+import { Helmet } from 'react-helmet-async';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -43,6 +44,16 @@ const ContactUs = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact Us</title>
+        <meta name="title" content="Contact Us" />
+        <meta name="description" content="Get in touch with our team for CTRM consulting and digital transformation services. We're here to answer your questions and discuss your business needs." />
+        <meta property="og:title" content="Contact Us" />
+        <meta property="og:description" content="Get in touch with our team for CTRM consulting and digital transformation services. We're here to answer your questions and discuss your business needs." />
+        <meta property="twitter:title" content="Contact Us" />
+        <meta property="twitter:description" content="Get in touch with our team for CTRM consulting and digital transformation services. We're here to answer your questions and discuss your business needs." />
+      </Helmet>
+      
       <section className='hero'>
         <video
           className='video-background'

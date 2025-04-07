@@ -2,6 +2,7 @@ import { FaChartLine, FaRobot, FaCloud, FaExchangeAlt, FaDatabase, FaServer, FaT
 import { BsChatDots } from 'react-icons/bs';
 import successVideo from '../assets/videos/success.mp4';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 export const caseStudies = [
   {
@@ -181,6 +182,16 @@ const SuccessStories = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Success Stories - Kazhuga</title>
+        <meta name="title" content="Success Stories" />
+        <meta name="description" content="Discover how Kazhuga has helped organizations transform their operations with Data and AI Solutions, delivering exceptional results across Trading, Banking, and Enterprise Systems." />
+        <meta property="og:title" content="Success Stories" />
+        <meta property="og:description" content="Discover how Kazhuga has helped organizations transform their operations with Data and AI Solutions, delivering exceptional results across Trading, Banking, and Enterprise Systems." />
+        <meta property="twitter:title" content="Success Stories" />
+        <meta property="twitter:description" content="Discover how Kazhuga has helped organizations transform their operations with Data and AI Solutions, delivering exceptional results across Trading, Banking, and Enterprise Systems." />
+      </Helmet>
+      
       <section className='hero'>
         <video
           className='video-background'

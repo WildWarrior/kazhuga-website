@@ -6,8 +6,12 @@ import chevronLogo from '../assets/img/testimonial/chevron-logo.png';
 import mitsuLogo from '../assets/img/testimonial/mitsu-logo.png';
 import databricksLogo from '../assets/img/testimonial/databricks-logo.png';
 import amazonLogo from '../assets/img/testimonial/amazon-Logo.png';
+import tvsLogo from '../assets/img/testimonial/tvs-logo.png';
+import accentureLogo from '../assets/img/testimonial/accenture-logo.png';
+import tcsLogo from '../assets/img/testimonial/tcs-logo.png';
 import homeVideo from '../assets/videos/home.mp4';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Landing = () => {
   const heroRef = useRef(null);
@@ -17,8 +21,11 @@ const Landing = () => {
     { src: shellLogo, alt: "Shell" },
     { src: chevronLogo, alt: "Chevron" },
     { src: mitsuLogo, alt: "TVS" },
-    { src: databricksLogo, alt: "DRW" },
-    { src: amazonLogo, alt: "Amazon" }
+    { src: databricksLogo, alt: "DataBricks" },
+    { src: amazonLogo, alt: "Amazon" },
+    { src: tvsLogo, alt: "TVS" },
+    { src: accentureLogo, alt: "Accenture" },
+    { src: tcsLogo, alt: "TCS" }
   ];
   const navigate = useNavigate();
   const [activeStoryIndex, setActiveStoryIndex] = useState(0);
@@ -68,19 +75,19 @@ const Landing = () => {
   
   useEffect(() => {
     const interval = setInterval(() => {
-      // setActiveLogoIndex((prevIndex) => (prevIndex + 1) % logos.length);
-    }, 2000); // 2 seconds per logo
-    
-    return () => clearInterval(interval);
+      setActiveLogoIndex((prevIndex) => (prevIndex + 1) % logos.length);
+    }, 3000); // Har 3 seconds mein logo change hoga
+
+    return () => clearInterval(interval); // Cleanup interval when component unmounts
   }, [logos.length]);
   
   useEffect(() => {
-    const interval = setInterval(() => {
-      // setActiveStoryIndex((prev) => (prev + 1) % successStories.length);
-    }, 5000); // Change story every 5 seconds
+    const storyInterval = setInterval(() => {
+      setActiveStoryIndex((prevIndex) => (prevIndex + 1) % successStories.length);
+    }, 5000); // Har 5 seconds mein story change hogi
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(storyInterval); // Cleanup interval on unmount
+  }, [successStories.length]);
   
   // Scroll handler function
   const scrollToExpertise = () => {
@@ -100,6 +107,16 @@ const Landing = () => {
   
   return (
     <LandingContainer>
+      <Helmet>
+        <title>Kazhuga - Your Trusted CTRM and Digital Transformation partner</title>
+        <meta name="title" content="Kazhuga - Your Trusted CTRM and Digital Transformation partner" />
+        <meta name="description" content="Unlock future value with intelligent data solutions and optimized commodity trading. Advanced technology and expertise for business growth." />
+        <meta property="og:title" content="Kazhuga - Your Trusted CTRM and Digital Transformation partner" />
+        <meta property="og:description" content="Unlock future value with intelligent data solutions and optimized commodity trading. Advanced technology and expertise for business growth." />
+        <meta property="twitter:title" content="Kazhuga - Your Trusted CTRM and Digital Transformation partner" />
+        <meta property="twitter:description" content="Unlock future value with intelligent data solutions and optimized commodity trading. Advanced technology and expertise for business growth." />
+      </Helmet>
+      
       {/* Hero Section */}
       <HeroSectionComponent scrollToExpertise={scrollToExpertise} />
 
@@ -401,9 +418,14 @@ const Landing = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ 
                 opacity: index === activeLogoIndex ? 1 : 0,
-                scale: index === activeLogoIndex ? 1 : 0.8
+                scale: index === activeLogoIndex ? 1 : 0.8,
+                filter: index === activeLogoIndex ? 'brightness(1.2)' : 'brightness(1)'
               }}
-              transition={{ duration: 0.5 }}
+              transition={{ 
+                duration: 0.5,
+                type: "spring", 
+                stiffness: 100 
+              }}
               style={{ position: index === activeLogoIndex ? 'relative' : 'absolute' }}
             >
               <ClientLogo>
@@ -420,22 +442,27 @@ const Landing = () => {
         <PreviewContainer>
           <motion.div
             key={activeStoryIndex}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, x: 100, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -100, scale: 0.95 }}
+            transition={{ 
+              duration: 0.7,
+              type: "spring", 
+              damping: 20,
+              stiffness: 100
+            }}
             className="story-preview"
           >
             <h3>{successStories[activeStoryIndex].title}</h3>
             <p>{successStories[activeStoryIndex].shortDesc}</p>
-            <div className="metrics">
+            <MetricsContainer>
               {successStories[activeStoryIndex].fullContent.impact.metrics.map((metric, index) => (
-                <div key={index} className="metric">
-                  <span className="value">{metric.value}</span>
+                <MetricItem key={index}>
+                  <span className="value" style={{ color: '#316FE2', fontWeight: 'bold', fontSize: '1.2rem' }}>{metric.value}</span>
                   <span className="label">{metric.label}</span>
-                </div>
+                </MetricItem>
               ))}
-            </div>
+            </MetricsContainer>
           </motion.div>
         </PreviewContainer>
         <ViewMoreButton onClick={() => handleNavigation('/success-stories')}>
@@ -1551,6 +1578,32 @@ const ViewMoreButton = styled.button`
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(49, 111, 226, 0.2);
+  }
+`;
+
+const MetricsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 15px;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+`;
+
+const MetricItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  min-width: 80px;
+  
+  @media (max-width: 768px) {
+    min-width: 70px;
+    padding: 5px;
+    margin: 0 5px;
   }
 `;
 
